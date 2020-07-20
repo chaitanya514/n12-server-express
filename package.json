@@ -11,16 +11,17 @@
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "graphql": "^14.7.0",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.0",
     "uuid": "^8.2.0"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.2.0",
-    "sequelize-auto-migrations": "blockxlabs/sequelize-auto-migrations#master"
+    "sequelize-auto-migrations": "blockxlabs/sequelize-auto-migrations#master",
+    "sequelize-cli": "^6.2.0"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "nodemon src/index.js"
   }
 }

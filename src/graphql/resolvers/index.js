@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const  uuid  = require('uuid');
+const jwt = require("jsonwebtoken");
 
 const resolvers = {
   Query: {
@@ -42,6 +43,37 @@ const resolvers = {
         email,
         password: await bcrypt.hash(password, 10)
       })
+    },
+    async login(root, args, { models, Op }) {
+      const options = {
+        raw: true,
+        where: {
+          email: {
+            [Op.eq]: args.email
+          }
+        }
+      }
+      const result = await models.User.findAll(options);
+      const {  email, name, password  } = result[0];      
+      isValidPassword = await bcrypt.compare(args.password,password) 
+       if(isValidPassword) {
+         const jwtToken = await jwt.sign(
+           { url : "https://awesomeapi.com/graphql" },
+           "f1BtnWgD3VKY",
+           { algorithm: "HS256", subject: String(uuid), expiresIn: "1d" }
+         );
+          return {
+            email,
+            name,
+            jwt: jwtToken
+          }
+        } else  {
+         return {
+           email,
+           name
+         }
+      }    
+    
     }
   },
 
