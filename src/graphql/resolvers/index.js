@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const  uuid  = require('uuid');
 
 const resolvers = {
   Query: {
@@ -36,6 +37,7 @@ const resolvers = {
   Mutation: {
     async createUser (root, { name, email, password }, { models }) {
       return models.User.create({
+        uuid: uuid.v4(),
         name,
         email,
         password: await bcrypt.hash(password, 10)

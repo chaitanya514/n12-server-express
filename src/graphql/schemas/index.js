@@ -5,6 +5,7 @@ const typeDefs = gql`
     id: Int!
     name: String!
     email: String!
+    jwt: String!
   }
 
   type DApps {
@@ -35,6 +36,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(name: String!, email: String!, password: String!): User!
+    login( email: String!, password: String!): User!
   }
 `
 
