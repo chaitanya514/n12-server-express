@@ -6,7 +6,10 @@ const resolvers = {
   Query: {
       async user (root, { id }, { models }) {
         return models.User.findById(id)
-      },
+    },
+    async viewer(root, args, { user }) {
+      return models.User.findById(user.sub)
+    },
       async allDApps (root, args, { models }) {
         return models.DApps.findAll();
       },

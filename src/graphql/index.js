@@ -5,6 +5,7 @@ const typeDefs = require('./schemas');
 const resolvers = require('./resolvers');
 const models = require('../db/models');
 const dataloader = require('./dataloaders');
+const { permissions } = require("../gateway/permissions");
 const { Op } = require("sequelize");
 
 const server = new ApolloServer({

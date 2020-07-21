@@ -1,4 +1,4 @@
-const { ApolloGateway } = require("@apollo/gateway");
+const { ApolloGateway, RemoteGraphQLDataSource } = require("@apollo/gateway");
 const { ApolloServer } = require("apollo-server-express");
 const express = require("express");
 const expressJwt = require("express-jwt");
