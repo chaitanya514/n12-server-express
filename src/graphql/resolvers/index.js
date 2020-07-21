@@ -4,11 +4,8 @@ const jwt = require("jsonwebtoken");
 
 const resolvers = {
   Query: {
-      async user (root, { id }, { models }) {
+    async user (root, { id }, { models }) {
         return models.User.findById(id)
-    },
-    async viewer(root, args, { user }) {
-      return models.User.findById(user.sub)
     },
       async allDApps (root, args, { models }) {
         return models.DApps.findAll();
@@ -61,7 +58,7 @@ const resolvers = {
       isValidPassword = await bcrypt.compare(args.password,password) 
        if(isValidPassword) {
          const jwtToken = await jwt.sign(
-           { url : "https://awesomeapi.com/graphql" },
+           { url : "https://localhost:4001/graphql" },
            "f1BtnWgD3VKY",
            { algorithm: "HS256", subject: String(uuid), expiresIn: "1d" }
          );
