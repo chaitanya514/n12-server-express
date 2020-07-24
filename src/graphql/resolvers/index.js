@@ -45,7 +45,6 @@ const resolvers = {
       })
     },
     async login(root, args, { models, Op }) {
-      console.log('login', args);
       const options = {
         raw: true,
         where: {
