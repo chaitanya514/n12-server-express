@@ -5,7 +5,7 @@ const typeDefs = gql`
     id: Int!
     name: String!
     email: String!
-    jwt: String!
+    jwt: String
   }
 
   type DApps {

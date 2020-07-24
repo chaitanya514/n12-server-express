@@ -45,6 +45,7 @@ const resolvers = {
       })
     },
     async login(root, args, { models, Op }) {
+      console.log('login', args);
       const options = {
         raw: true,
         where: {
@@ -53,7 +54,7 @@ const resolvers = {
           }
         }
       }
-      const result = await models.User.findAll(options);
+      const result = await models.User.findOne(options);
       const {  email, name, password  } = result[0];      
       isValidPassword = await bcrypt.compare(args.password,password) 
        if(isValidPassword) {
