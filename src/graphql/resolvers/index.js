@@ -46,17 +46,15 @@ const resolvers = {
     },
     async login(root, args, { models, Op }) {
       const options = {
-        raw: true,
+        raw:true,
         where: {
-          email: {
-            [Op.eq]: args.email
-          }
+          email: args.email
         }
       }
       const result = await models.User.findOne(options);
-      const {  email, name, password  } = result[0];      
+      const {  email, name, password  } = result;      
       isValidPassword = await bcrypt.compare(args.password,password) 
-       if(isValidPassword) {
+      if (isValidPassword) {
          const jwtToken = await jwt.sign(
            { url : "https://localhost:4001/graphql" },
            "f1BtnWgD3VKY",
