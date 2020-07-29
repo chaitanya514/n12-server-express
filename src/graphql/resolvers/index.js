@@ -23,13 +23,13 @@ const resolvers = {
         return result;
       },
       async dApps (root, { uuid }, { models }) {
-        return models.DApps.findById(uuid)
+        return models.DApps.findByPk(uuid)
       },
       async allNotifications (root, args, { models }) {
         return models.Notifications.findAll()
       },
       async notifcations (root, { uuid }, { models }) {
-        return models.Notifications.findById(uuid)
+        return models.Notifications.findByPk(uuid)
       }      
     },
 

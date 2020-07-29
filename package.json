@@ -13,14 +13,13 @@
     "graphql": "^14.7.0",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.0",
+    "sequelize": "^6.3.0"
   },
   "devDependencies": {
     "sequelize-cli": "^6.2.0",
     "sequelize-auto-migrations": "blockxlabs/sequelize-auto-migrations#master"
   },
-  },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "nodemon src/index.js"
   }
 }
