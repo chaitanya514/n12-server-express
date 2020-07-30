@@ -38,7 +38,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(email: String!): User!
-    subscribeNotificcations(email : String!,dAppUuid: String!,selectedNotifications:[String!]): UserNotifications
+    subscribeNotificcations(email : String!,dAppUuid: String!,selectedNotifications:[String!]): [UserNotifications]
   }
 `
 

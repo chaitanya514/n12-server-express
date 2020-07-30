@@ -59,8 +59,8 @@ const resolvers = {
         }
       });
       const options = { returning: true };
-      const result = await models.UserNotifications.bulkCreate(records,options);
-      return result;
+      const userNotifications = await models.UserNotifications.bulkCreate(records, options);
+      return userNotifications;
     }
   },
 
