@@ -5,7 +5,6 @@ const typeDefs = gql`
     uuid: String!
     email: String!
   }
-
   type DApps {
     uuid: String!
     name: String!
@@ -13,7 +12,6 @@ const typeDefs = gql`
     logoUrl: String!
     Notifications: [Notifications!]
   }
-
   type Notifications {
     uuid: String!
     dAppUuid: String!
@@ -22,7 +20,13 @@ const typeDefs = gql`
     longDescription: String!
     DApps: [DApps!]
   }
-
+  type UserNotifications {
+    uuid: String
+    userUuid: String
+    dAppUuid: String
+    notificationsUuid: String,
+    Notifications: [Notifications]
+  }
   type Query {
     user(id: Int!): User
     allDApps: [DApps!]!
@@ -34,6 +38,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(email: String!): User!
+    subscribeNotificcations(email : String!,dAppUuid: String!,selectedNotifications:[String!]): UserNotifications
   }
 `
 
