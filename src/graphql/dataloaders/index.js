@@ -1,4 +1,13 @@
-const notificationsLoader = require('./notificationsLoader');
-const dappsLoader = require('./dappsLoader');
+const notificationsLoaderInit = require('./notificationsLoader');
+const dappsLoaderInit = require('./dappsLoader');
 
-module.exports = {notificationsLoader, dappsLoader}
+const createLoader = () => {
+  const dappsLoader = dappsLoaderInit();
+  const notificationsLoader = notificationsLoaderInit();
+  return {
+    dappsLoader,
+    notificationsLoader
+  };
+};
+
+module.exports = createLoader
