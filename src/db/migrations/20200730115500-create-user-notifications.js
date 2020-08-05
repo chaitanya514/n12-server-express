@@ -5,19 +5,18 @@ module.exports = {
       uuid: {
         allowNull: false,
         type: Sequelize.UUID,
-        primaryKey: true,
-      },
+        },
       user_uuid: {
-        allowNull: false,          
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        primaryKey: true
         },
       d_app_uuid: {
-        allowNull: false,          
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        primaryKey: true
         },
       notifications_uuid: {
-        allowNull: false,          
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        primaryKey: true
       },
       created_at: {
         allowNull: false,

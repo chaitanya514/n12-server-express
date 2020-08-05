@@ -66,7 +66,7 @@ const resolvers = {
           }
         });
 
-        const options = { returning: true };
+        const options = { returning: true, updateOnDuplicate: ['user_uuid', 'd_app_uuid','notifications_uuid'] };
         const userNotifications = await models.UserNotifications.bulkCreate(records, options);
         return userNotifications;
       } catch (error) {

@@ -3,7 +3,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addConstraint('user_notifications', {
       fields: ['user_uuid', 'd_app_uuid', 'notifications_uuid'],
-      type: 'unique',
+      type: 'primary key',
       name: 'user_dapp_notifications_unique_constraint'
     });
   },
